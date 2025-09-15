@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="exercise/layout :: head">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Customers</h3>
+    <p>
+        <a th:href="@{/exercise/products/create}">
+            Add new product
+        </a>
+    </p>
+    <div class="notify">
+        <div th:if="${success}">
+            <span th:text="${success}"></span>
+        </div>
+    </div>
+
+    <table id="products">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="row, rowStat : ${products}">
+                <td th:text="${row.getName()}"></td>
+                <td th:text="${row.getPrice()}"></td>
+                <td th:text="${row.getDescription()}"></td>
+                <td th:text="${row.getQuantity()}"></td>
+                <td><a th:href="@{/exercise/products/{id}/edit(id=${row.getId()})}">edit</a></td>
+                <td><a th:href="@{/exercise/products/{id}/delete(id=${row.getId()})}">delete</a></td>
+                <td><a th:href="@{/exercise/products/{id}/view(id=${row.getId()})}">view</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <footer th:replace="exercise/layout :: footer"></footer>
+</body>
+</html>

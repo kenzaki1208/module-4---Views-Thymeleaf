@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping("/practice/customers")
+@RequestMapping("/exercise/customers")
 public class CustomerController {
     private final ICustomerService customerService = new CustomerService();
 
