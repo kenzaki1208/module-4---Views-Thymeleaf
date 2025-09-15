@@ -46,4 +46,11 @@ public class ProductService implements IProductService {
     public void update(int id, Product product) {
         products.put(id, product);
     }
+
+    @Override
+    public List<Product> findByName(String name) {
+        return products.values().stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .toList();
+    }
 }

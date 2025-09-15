@@ -10,6 +10,12 @@
             Add new product
         </a>
     </p>
+
+    <form th:action="@{/exercise/products/search}" method="get">
+        <input type="text" name="name" placeholder="Enter product name"/>
+        <input type="submit" value="Search"/>
+    </form>
+
     <div class="notify">
         <div th:if="${success}">
             <span th:text="${success}"></span>
